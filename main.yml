@@ -1,0 +1,28 @@
+---
+- name: Volledige Systeem Configuratie
+  import_playbook: install_tlp.yml
+
+- name: Browser Instellingen
+  import_playbook: firefox_search.yml
+
+- name: Optimalisatie Tools
+  import_playbook: stap2.yml
+
+- name: Volledige Systeem Configuratie
+  import_playbook: stap3.yml
+
+- name: Browser Instellingen
+  import_playbook: duckduckgo.yml
+
+- name: Optimalisatie Tools
+  import_playbook: bashrc.yml
+
+- name: Volledige Systeem Configuratie
+  import_playbook: tlp.yml
+
+- name: Browser Instellingen
+  import_playbook: firefox_search.yml
+
+- name: Optimalisatie Tools
+  import_playbook: install_stacer.yml
+
