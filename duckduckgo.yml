@@ -1,0 +1,34 @@
+---
+- name: Configureer Firefox Systeembeleid
+  hosts: all
+  become: yes
+  vars:
+    policy_dir: "/usr/lib/firefox/distribution"
+
+  tasks:
+    - name: Zorg dat de Firefox distributie map bestaat
+      file:
+        path: "{{ policy_dir }}"
+        state: directory
+        mode: '0755'
+        owner: root
+        group: root
+
+    - name: Stel DuckDuckGo in als standaard zoekmachine via policies.json
+      copy:
+        dest: "{{ policy_dir }}/policies.json"
+        content: |
+          {
+            "policies": {
+              "SearchEngines": {
+                "Default": "DuckDuckGo"
+              }
+            }
+          }
+        mode: '0644'
+        owner: root
+        group: root
+
+    - name: Bevestiging van instelling
+      debug:
+        msg: "Firefox zoekmachine succesvol ingesteld op DuckDuckGo."
