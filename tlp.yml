@@ -1,0 +1,28 @@
+---
+- name: Install and Configure TLP for Battery Optimization
+  hosts: all
+  become: yes
+  tasks:
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install TLP and required packages
+      apt:
+        name:
+          - tlp
+          - tlp-rdw
+        state: present
+
+    - name: Ensure TLP service is enabled and started
+      service:
+        name: tlp
+        state: started
+        enabled: yes
+
+    - name: Start TLP in manual mode to apply settings immediately
+      command: tlp start
+      changed_when: false
+      become: yes
