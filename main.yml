@@ -1,10 +1,4 @@
 ---
-- name: Volledige Systeem Configuratie
-  import_playbook: install_tlp.yml
-
-- name: Browser Instellingen
-  import_playbook: firefox_search.yml
-
 - name: Optimalisatie Config
   import_playbook: stap2.yml
 
