@@ -37,7 +37,7 @@ cd laptoprevive
 ### Belangrijke directories en files 
 
 ```
-laptop-revive/
+laptoprevive/
 ├── inventory.ini
 ├── stap1-inventory.yml
 ├── stap2-hostname.yml
