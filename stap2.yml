@@ -1,0 +1,17 @@
+- name: Hostname instellen
+  hosts: localhost
+  become: yes
+
+  vars:
+    nieuwe_hostname: "laptop-lch"
+
+  tasks:
+    - name: Hostname instellen
+      hostname:
+        name: "{{ nieuwe_hostname }}"
+
+    - name: /etc/hosts aanpassen
+      lineinfile:
+        path: /etc/hosts
+        regexp: '^127.0.1.1'
+        line: "127.0.1.1 {{ nieuwe_hostname }}"

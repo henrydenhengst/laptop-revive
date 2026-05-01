@@ -1,0 +1,125 @@
+---
+- name: Build My LMDE Fortress (Safe Edition)
+  hosts: localhost
+  connection: local
+  become: yes
+  gather_facts: yes
+
+  vars:
+    # Veilige bepaling van de actuele gebruiker
+    user_name: "{{ ansible_env.SUDO_USER | default(ansible_user_id) }}"
+    # zRam instelling: 60% van RAM met een max van 4GB
+    zram_size_mb: "{{ (ansible_facts['memtotal_mb'] * 0.6) | round | int if ansible_facts['memtotal_mb'] < 4096 else 4096 }}"
+
+  tasks:
+    - name: Stap 1 - Update Package Cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Stap 2 - Install Technician Toolkit (Systeembeheer Tools)
+      apt:
+        name:
+          - ansible
+          - git
+          - openssh-server
+          - ufw
+          - htop
+          - btop
+          - atop
+          - glances
+          - nmon
+          - iotop
+          - powertop
+          - lsof
+          - strace
+          - lm-sensors
+          - ranger
+          - nnn
+          - mc
+          - ncdu
+          - tree
+          - fzf
+          - duf
+          - nmap
+          - iperf3
+          - mtr-tiny
+          - tcpdump
+          - bmon
+          - speedtest-cli
+          - bind9-host
+          - socat
+          - netcat-openbsd
+          - ethtool
+          - ipcalc
+          - vim
+          - neovim
+          - bat
+          - jq
+          - ripgrep
+          - fd-find
+          - diffutils
+          - smartmontools
+          - inxi
+          - pciutils
+          - usbutils
+          - tmux
+          - rsync
+          - curl
+          - wget
+          - zstd
+        state: present
+
+    - name: Stap 3 - zRam Optimalisatie
+      block:
+        - name: Install zram-tools
+          apt:
+            name: zram-tools
+            state: present
+
+        - name: Configureer zram-tools instellingen
+          lineinfile:
+            path: /etc/default/zramswap
+            regexp: "{{ item.regexp }}"
+            line: "{{ item.line }}"
+          loop:
+            - { regexp: '^#?SIZE=', line: 'SIZE={{ zram_size_mb }}' }
+            - { regexp: '^#?ALGO=', line: 'ALGO=zstd' }
+            - { regexp: '^#?PRIORITY=', line: 'PRIORITY=100' }
+          notify: herstart zram
+
+    - name: Stap 4 - Systeem Services Inschakelen
+      systemd:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        - ssh
+        - ufw
+        - zramswap
+
+    - name: Stap 5 - Beveiliging & Opschonen
+      block:
+        - name: Configureer Firewall (UFW)
+          ufw:
+            state: enabled
+            policy: deny
+            direction: incoming
+
+        - name: Sta SSH toe (optioneel, alleen voor lokaal beheer)
+          ufw:
+            rule: limit
+            port: '22'
+            proto: tcp
+
+        - name: Verwijder overbodige Debian rapportage tools
+          apt:
+            name: [installation-report, reportbug]
+            state: absent
+            purge: yes
+
+  handlers:
+    - name: herstart zram
+      systemd:
+        name: zramswap
+        state: restarted

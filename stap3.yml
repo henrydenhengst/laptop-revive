@@ -1,0 +1,127 @@
+---
+- name: Stap 3 - Laptop provisioning (Cinnamon Linux Mint)
+  hosts: localhost
+  connection: local
+  become: yes
+
+  vars:
+    user: "henry"
+    # Paden gebaseerd op jouw 'tree' overzicht (alles in de 'files' map)
+    dconf_file: "files/laptoprevive-config.dconf"
+    extension_zip: "files/transparent-panels@germanfr.zip"
+    logo_file: "files/logo.webp"
+    wallpaper_file: "files/wallpaper.png"
+
+  tasks:
+    # 1. Systeem updaten
+    - name: Systeem updaten en upgraden
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    # 2. Standaard software installeren
+    - name: Standaard software installeren
+      apt:
+        name:
+          - vlc
+          - gimp
+          - libreoffice
+          - imagemagick
+          - dconf-cli
+        state: present
+
+    # 3. Firewall activeren
+    - name: UFW inschakelen
+      ufw:
+        state: enabled
+
+    # 4. Cinnamon algemene configuratie laden
+    - name: Cinnamon instellingen laden via dconf
+      become: no
+      shell: "dconf load /org/cinnamon/ < {{ playbook_dir }}/{{ dconf_file }}"
+      args:
+        executable: /bin/bash
+
+    # 5. Achtergrond instellen (na de dconf load om overschrijven te voorkomen)
+    - name: Achtergrondbestand kopiëren naar home-map
+      copy:
+        src: "{{ playbook_dir }}/{{ wallpaper_file }}"
+        dest: "/home/{{ user }}/wallpaper.png"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0644'
+      become: no
+
+    - name: Achtergrond activeren in Cinnamon
+      become: no
+      shell: "dconf write /org/cinnamon/desktop/background/picture-uri \"'file:///home/{{ user }}/wallpaper.png'\""
+      args:
+        executable: /bin/bash
+
+    # 6. Profielfoto instellen
+    - name: Profielfoto (.face) plaatsen
+      copy:
+        src: "{{ playbook_dir }}/{{ logo_file }}"
+        dest: "/home/{{ user }}/.face"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0644'
+      become: no
+
+    # 7. Cinnamon extensie installeren
+    - name: Map voor extensies aanmaken
+      file:
+        path: "/home/{{ user }}/.local/share/cinnamon/extensions/"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0755'
+
+    - name: Transparent panels extensie uitpakken
+      unarchive:
+        src: "{{ playbook_dir }}/{{ extension_zip }}"
+        dest: "/home/{{ user }}/.local/share/cinnamon/extensions/"
+        remote_src: no
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      become: no
+
+    - name: Extensie activeren
+      become: no
+      shell: "dconf write /org/cinnamon/enabled-extensions \"['transparent-panels@germanfr']\""
+      args:
+        executable: /bin/bash
+
+    # 8. Systeem opruimen
+    - name: Systeem opruimen
+      apt:
+        autoremove: yes
+        clean: yes
+
+    # 9. Eindrapport genereren
+    - name: Hardware info verzamelen voor rapport
+      shell: |
+        echo "===== LAPTOP REVIVE STAP 3 REPORT ====="
+        echo "HOSTNAME: $(hostname)"
+        echo "MERK: $(dmidecode -s system-manufacturer)"
+        echo "MODEL: $(dmidecode -s system-product-name)"
+        echo "SERIAL: $(dmidecode -s system-serial-number)"
+        echo "DATE: $(date '+%Y-%m-%d %H:%M:%S')"
+      register: report
+      changed_when: false
+
+    # 10. Rapport opslaan
+    - name: Rapport opslaan op laptop
+      copy:
+        dest: "/home/{{ user }}/final-report.txt"
+        content: "{{ report.stdout }}"
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0644'
+      become: no
+
+    - name: Rapport exporteren naar beheer-map
+      copy:
+        dest: "{{ playbook_dir }}/final-report-{{ ansible_hostname }}.txt"
+        content: "{{ report.stdout }}"
+      become: no
