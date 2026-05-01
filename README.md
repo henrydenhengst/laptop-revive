@@ -77,6 +77,11 @@ ansible-playbook -i inventory.ini stap2.yml
 ansible-playbook -i inventory.ini stap3.yml
 ```
 
+### Check-out:
+- Werkt het geluid?
+- Werkt de webcam?
+- Werkt de WiFi?
+
 ## Stap 4 → Verwijder gebruikte WiFi login
 
 ```bash
