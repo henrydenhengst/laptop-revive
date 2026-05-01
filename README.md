@@ -14,8 +14,8 @@ Kopieer vervolgens de iso files van Shredos en Linux Mint naartoe.
 Boot van USB stick en kies voor Shredos.
 Clean the disk!
 
-Boot van USB stick en kies voor Linux Mint 
-Installeer Linux Mint
+Boot van USB stick en kies voor Linux Mint. 
+Installeer Linux Mint.
 
 ### Installeer git en ansible
 ```bash
