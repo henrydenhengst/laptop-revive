@@ -5,7 +5,7 @@
 - name: Browser Instellingen
   import_playbook: firefox_search.yml
 
-- name: Optimalisatie Tools
+- name: Optimalisatie Config
   import_playbook: stap2.yml
 
 - name: Volledige Systeem Configuratie
@@ -14,15 +14,15 @@
 - name: Browser Instellingen
   import_playbook: duckduckgo.yml
 
-- name: Optimalisatie Tools
+- name: Optimalisatie Bash
   import_playbook: bashrc.yml
 
-- name: Volledige Systeem Configuratie
+- name: Laptop Accu Optimalisatie 
   import_playbook: tlp.yml
 
-- name: Browser Instellingen
+- name: Hardware Instellingen
   import_playbook: hardware-configs.yml
 
-- name: Optimalisatie Tools
-  import_playbook: install_stacer.yml
+- name: Nerd Fonts voor Terminal 
+  import_playbook: nerd-fonts.yml
 
