@@ -69,3 +69,9 @@ ansible-playbook -i inventory.ini stap2.yml
 ```bash
 ansible-playbook -i inventory.ini stap3.yml
 ```
+
+## Stap 4 → verwijder gebruikte WiFi login
+
+```bash
+sudo bash rmwifi.sh
+```
