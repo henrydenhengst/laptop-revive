@@ -26,7 +26,7 @@ sudo apt update && sudo apt upgrade -y
 
 ### Installeer git en ansible
 ```bash
-sudo apt install git ansible
+sudo apt install git ansible -y
 mkdir -p repo
 cd repo
 git clone https://github.com/henrydenhengst/laptoprevive.git
