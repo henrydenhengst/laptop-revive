@@ -39,9 +39,9 @@ cd laptoprevive
 ```
 laptoprevive/
 ├── inventory.ini
-├── stap1-inventory.yml
-├── stap2-hostname.yml
-├── stap3-provisioning.yml
+├── stap1.yml
+├── stap2.yml
+├── stap3.yml
 ├── files/
 │   ├── laptoprevive-config.dconf
 │   ├── logo.webp
