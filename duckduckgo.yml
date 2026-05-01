@@ -1,6 +1,6 @@
 ---
 - name: Configureer Firefox Systeembeleid
-  hosts: all
+  hosts: localhost
   become: yes
   vars:
     policy_dir: "/usr/lib/firefox/distribution"
