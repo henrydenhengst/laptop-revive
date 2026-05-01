@@ -21,7 +21,7 @@ Installeer Linux Mint.
 
 ### Update het systeem 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
 ### Installeer git en ansible
