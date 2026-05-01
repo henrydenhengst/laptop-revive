@@ -68,7 +68,7 @@ Stuur `/home/laptoprevive/     hardware-info-{{ inventory_hostname }}.txt` naar 
 
 Wachten op `hostname` van de administratie.
 
-Edit de variabelen (hostname) in stap2.yml
+Edit de variabele (hostname) in stap2.yml en run playbook.
 
 ```bash
 nano stap2.yml
