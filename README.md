@@ -25,7 +25,7 @@ cd repo
 git clone https://github.com/henrydenhengst/laptoprevive.git
 cd laptoprevive
 ```
-### directories en files 
+### Belangrijke directories en files 
 
 ```
 laptop-revive/
