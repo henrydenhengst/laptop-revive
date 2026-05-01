@@ -2,7 +2,7 @@
 
 # Laptop Revival 
 
-## stap 0 Prerequisites
+## Stap 0 Prerequisites
 
 Gebruik een USB stick van 4 Gb+.
 Installeer hier Ventoy op.
