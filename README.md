@@ -39,6 +39,7 @@ cd laptoprevive
 ```
 laptoprevive/
 ├── inventory.ini
+├── ansible.cfg
 ├── stap1.yml
 ├── stap2.yml
 ├── stap3.yml
