@@ -19,6 +19,11 @@ Clean the disk!
 Boot van USB stick en kies voor Linux Mint. 
 Installeer Linux Mint.
 
+### Update het systeem 
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
 ### Installeer git en ansible
 ```bash
 sudo apt install git ansible
