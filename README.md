@@ -87,7 +87,7 @@ Als alle YML files zijn getest en goedgekeurd:
 ansible-playbook -K stap1.yml
 ```
 Naar de administratie, en dan
-``bash
+```bash
 ansible-playbook -K main.yml
 ```
 
