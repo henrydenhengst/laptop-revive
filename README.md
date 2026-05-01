@@ -91,6 +91,6 @@ ansible-playbook -i inventory.ini stap3.yml
 ```bash
 sudo bash rmwifi.sh
 rm -rf /home/laptoprevive/repo
-sudo apt remove ansible
+sudo apt remove ansible -y
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
