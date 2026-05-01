@@ -81,6 +81,16 @@ ansible-playbook -i inventory.ini stap2.yml
 ansible-playbook -i inventory.ini stap3.yml
 ```
 
+### Toekomst
+Als alle YML files zijn getest en goedgekeurd:
+```bash
+ansible-playbook -K stap1.yml
+```
+Naar de administratie, en dan
+``bash
+ansible-playbook -K main.yml
+```
+
 ### Check-out:
 - Werkt het geluid?
 - Werkt de webcam?
