@@ -23,6 +23,7 @@
           - ansible
           - git
           - openssh-server
+          - flameshot
           - ufw
           - htop
           - btop
