@@ -1,3 +1,5 @@
+![Laptop Revive logo](files/logo.webp)
+
 # Laptop Revival 
 
 ## stap 0 Prerequisites
