@@ -84,8 +84,11 @@ ansible-playbook -i inventory.ini stap3.yml
 - Werkt de webcam?
 - Werkt de WiFi?
 
-## Stap 4 → Verwijder gebruikte WiFi login
+## Stap 4 → Verwijder gebruikte WiFi login en Ansible
 
 ```bash
 sudo bash rmwifi.sh
+rm -rf /home/laptoprevive/repo
+sudo apt remove Ansible
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
