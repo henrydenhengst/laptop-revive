@@ -40,6 +40,7 @@ cd laptoprevive
 laptoprevive/
 ├── inventory.ini
 ├── ansible.cfg
+├── rmwifi.sh
 ├── stap1.yml
 ├── stap2.yml
 ├── stap3.yml
