@@ -64,13 +64,13 @@ nano stap2.yml
 ansible-playbook -i inventory.ini stap2.yml
 ```
 
-## Stap 3 → volledige provisioning via declaratieve config
+## Stap 3 → Volledige provisioning via declaratieve config
 
 ```bash
 ansible-playbook -i inventory.ini stap3.yml
 ```
 
-## Stap 4 → verwijder gebruikte WiFi login
+## Stap 4 → Verwijder gebruikte WiFi login
 
 ```bash
 sudo bash rmwifi.sh
