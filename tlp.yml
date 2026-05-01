@@ -1,6 +1,6 @@
 ---
 - name: Install and Configure TLP for Battery Optimization
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
 
