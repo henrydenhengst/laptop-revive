@@ -6,6 +6,8 @@
 ![Ventoy](https://img.shields.io/badge/USB-Ventoy-blue?style=for-the-badge)
 ![WiFi Cleanup](https://img.shields.io/badge/Security-WiFi%20Cleanup-important?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Workflow-Production%20Ready-brightgreen?style=for-the-badge)
+[![Code Climate](https://codeclimate.com/github/fucongcong/Group-Co/badges/gpa.svg)](https://github.com/fucongcong/Group-Co)
+
 
 ## Stap 0 Prerequisites
 
