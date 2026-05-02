@@ -1,4 +1,5 @@
-# Erg handige tools
+```markdown
+# Netboot en Bootbare Rescue-omgevingen
 
 ## Hiren's BootCD PE
 [![Website](https://img.shields.io/badge/Website-hirensbootcd.org-blue.svg)](https://www.hirensbootcd.org/) [![Platform](https://img.shields.io/badge/platform-WinPE-blue.svg)](https://en.wikipedia.org/wiki/Windows_Preinstallation_Environment)
@@ -24,3 +25,8 @@ Grafische partitie-editor. Partities veilig vergroten, verkleinen of verplaatsen
 [![GitHub](https://img.shields.io/badge/GitHub-netbootxyz%2Fnetboot.xyz-blue.svg)](https://github.com/netbootxyz/netboot.xyz) [![Platform](https://img.shields.io/badge/platform-iPXE-purple.svg)](https://netboot.xyz/)
 
 Boot via netwerk direct de nieuwste versies van rescue-tools en besturingssystemen. Geen USB-stick meer updaten.
+
+---
+
+[⬅️ Terug naar README](README.md)
+```
