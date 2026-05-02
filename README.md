@@ -112,5 +112,7 @@ sudo apt remove ansible -y
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
 
+[📄 Licentie](LICENSE)
+
 ![Laptop Revive logo](files/logo.webp)
 
