@@ -2,6 +2,13 @@
 
 # Laptop Revival 
 
+![Linux Mint](https://img.shields.io/badge/OS-Linux%20Mint-green?style=for-the-badge&logo=linuxmint)
+![Ubuntu Base](https://img.shields.io/badge/Base-Ubuntu%20LTS-orange?style=for-the-badge&logo=ubuntu)
+![Ansible](https://img.shields.io/badge/Automation-Ansible-red?style=for-the-badge&logo=ansible)
+![Homelab](https://img.shields.io/badge/Use-Homelab-blue?style=for-the-badge)
+![Provisioning](https://img.shields.io/badge/Setup-3%20Step%20Provisioning-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Workflow-Production%20Ready-brightgreen?style=for-the-badge)
+
 ## Stap 0 Prerequisites
 
 Gebruik een USB stick van 4 Gb+.
