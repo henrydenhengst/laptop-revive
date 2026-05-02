@@ -21,7 +21,8 @@ Open-source standaard voor schijfkopieën en klonen. Volledige backups maken of 
 Grafische partitie-editor. Partities veilig vergroten, verkleinen of verplaatsen zonder dataverlies.
 
 ## netboot.xyz
-[![GitHub](https://img.shields.io/badge/GitHub-netbootxyz%2Fnetboot.xyz-blue.svg)]([(https://github.com/henrydenhengst/netboot) [![Platform](https://img.shields.io/badge/platform-iPXE-purple.svg)](https://netboot.xyz/)
+[![GitHub](https://img.shields.io/badge/GitHub-netbootxyz%2Fnetboot.xyz-blue.svg)](https://github.com/henrydenhengst/netboot)
+[![Platform](https://img.shields.io/badge/platform-iPXE-purple.svg)](https://netboot.xyz/)
 
 Boot via netwerk direct de nieuwste versies van rescue-tools en besturingssystemen. Geen USB-stick meer updaten.
 
