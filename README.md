@@ -20,6 +20,8 @@ Kopieer vervolgens de iso files van Shredos en Linux Mint naartoe.
 
 Tip: Controleer in het BIOS of de laptop op UEFI mode staat. Dit werkt vaak beter met de moderne Linux Mint kernels en Ansible-configuraties.
 
+[Uitdagingen, hier zijn wat tools →](tools.md)
+
 Boot van USB stick en kies voor Shredos.
 Clean the disk!
 
