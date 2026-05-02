@@ -1,7 +1,5 @@
 ![Laptop Revival Hero](files/a_wide_clean_tech_themed_banner_hero_graphic_w.png)
-
 # Laptop Revival 
-
 ![Linux Mint](https://img.shields.io/badge/OS-Linux%20Mint-green?style=for-the-badge&logo=linuxmint)
 ![Ansible](https://img.shields.io/badge/Automation-Ansible-red?style=for-the-badge&logo=ansible)
 ![Shredos](https://img.shields.io/badge/Wipe-Shredos-black?style=for-the-badge)
