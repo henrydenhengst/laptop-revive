@@ -1,7 +1,7 @@
 # Bootbare Rescue-omgevingen
 
 ## Hiren's BootCD PE
-[![Website](https://img.shields.io/badge/GitHub-hirensbootcd%2Fhirensbootcd.org-blue.svg)](https://github.com/hirensbootcd/hirensbootcd.org) [![Platform](https://img.shields.io/badge/platform-WinPE-blue.svg)](https://en.wikipedia.org/wiki/Windows_Preinstallation_Environment)
+[![Website](https://img.shields.io/badge/Website-hirensbootcd.org-blue.svg)](https://www.hirensbootcd.org/) [![Platform](https://img.shields.io/badge/platform-WinPE-blue.svg)](https://en.wikipedia.org/wiki/Windows_Preinstallation_Environment)
 
 Moderne WinPE-omgeving met tools voor wachtwoordherstel, datarecovery en schijfdiagnose.
 
