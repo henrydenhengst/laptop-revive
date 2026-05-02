@@ -3,8 +3,10 @@
 # Laptop Revival 
 
 ![Linux Mint](https://img.shields.io/badge/OS-Linux%20Mint-green?style=for-the-badge&logo=linuxmint)
-![Ubuntu Base](https://img.shields.io/badge/Base-Ubuntu%20LTS-orange?style=for-the-badge&logo=ubuntu)
 ![Ansible](https://img.shields.io/badge/Automation-Ansible-red?style=for-the-badge&logo=ansible)
+![Shredos](https://img.shields.io/badge/Wipe-Shredos-black?style=for-the-badge)
+![Ventoy](https://img.shields.io/badge/USB-Ventoy-blue?style=for-the-badge)
+![WiFi Cleanup](https://img.shields.io/badge/Security-WiFi%20Cleanup-important?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Workflow-Production%20Ready-brightgreen?style=for-the-badge)
 
 ## Stap 0 Prerequisites
