@@ -1,4 +1,3 @@
-```markdown
 # Netboot en Bootbare Rescue-omgevingen
 
 ## Hiren's BootCD PE
@@ -29,4 +28,3 @@ Boot via netwerk direct de nieuwste versies van rescue-tools en besturingssystem
 ---
 
 [⬅️ Terug naar README](README.md)
-```
