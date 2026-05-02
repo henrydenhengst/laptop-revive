@@ -1,4 +1,4 @@
-![Laptop Revive logo](files/logo.webp)
+![Laptop Revival Hero](files/a_wide_clean_tech_themed_banner_hero_graphic_w.png)
 
 # Laptop Revival 
 
@@ -111,3 +111,6 @@ rm -rf /home/laptoprevive/repo
 sudo apt remove ansible -y
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
 ```
+
+![Laptop Revive logo](files/logo.webp)
+
