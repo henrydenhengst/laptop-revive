@@ -1,0 +1,78 @@
+---
+- name: Linux Mint HWE Check
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  vars:
+    hwe_threshold_major: 6
+    hwe_threshold_minor: 11
+
+  tasks:
+
+    - name: Toon OS info
+      debug:
+        msg: "{{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: Toon kernel versie
+      debug:
+        msg: "Kernel: {{ ansible_kernel }}"
+
+    - name: Bepaal kernel major/minor
+      set_fact:
+        kernel_major: "{{ ansible_kernel.split('.')[0] | int }}"
+        kernel_minor: "{{ ansible_kernel.split('.')[1] | int }}"
+
+    - name: Check of kernel waarschijnlijk HWE is
+      set_fact:
+        is_hwe: >-
+          {{ (kernel_major > hwe_threshold_major) or
+             (kernel_major == hwe_threshold_major and kernel_minor >= hwe_threshold_minor) }}
+
+    - name: Toon kernel type
+      debug:
+        msg: >-
+          {% if is_hwe %}
+          Waarschijnlijk HWE of nieuwere kernel
+          {% else %}
+          Waarschijnlijk GA (standaard) kernel
+          {% endif %}
+
+    - name: Check aanbevolen drivers
+      command: ubuntu-drivers devices
+      register: driver_info
+      changed_when: false
+      failed_when: false
+
+    - name: Toon driver info
+      debug:
+        var: driver_info.stdout_lines
+
+    - name: Check op UNCLAIMED hardware
+      shell: lshw -short | grep UNCLAIMED || true
+      register: unclaimed
+      changed_when: false
+
+    - name: Toon UNCLAIMED devices
+      debug:
+        msg: >-
+          {% if unclaimed.stdout == "" %}
+          Geen UNCLAIMED devices gevonden
+          {% else %}
+          {{ unclaimed.stdout }}
+          {% endif %}
+
+    - name: Advies bepalen
+      debug:
+        msg: >-
+          {% if unclaimed.stdout != "" %}
+          Er is hardware zonder driver.
+          → Check Driverbeheer of installeer aanbevolen drivers.
+          → Overweeg HWE als het nieuwe hardware is.
+          {% elif not is_hwe %}
+          Alles lijkt OK.
+          → Overweeg HWE alleen bij hardwareproblemen of nieuwe hardware.
+          {% else %}
+          Je gebruikt al een recente kernel (HWE).
+          → Geen actie nodig.
+          {% endif %}
