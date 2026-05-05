@@ -20,3 +20,6 @@
 - name: Nerd Fonts voor Terminal 
   import_playbook: nerd-fonts.yml
 
+- name: Linux Mint HWE check
+  import_playbook: mint-hwe-check.yml
+
